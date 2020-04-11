@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: List
+items:
+  - apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: api-deployment
+      labels:
+        app: api
+    spec:
+      replicas: 3
+      selector:
+        matchLabels:
+          app: api
+      template:
+        metadata:
+          labels:
+            app: api
+        spec:
+          containers:
+            - name: api
+              image: minvar/sample-api
+              ports:
+                - containerPort: 8000
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      name: api-service
+    spec:
+      selector:
+        app: api
+      ports:
+        - protocol: TCP
+          port: 80
+          targetPort: 8000
+  - apiVersion: extensions/v1beta1
+    kind: Ingress
+    metadata:
+      name: api-ingress
+    spec:
+      rules:
+        - host: api.archisight.com
+          http:
+            paths:
+              - path: /
+                backend:
+                  serviceName: api-service
+                  servicePort: 80

@@ -1,0 +1,10 @@
+{
+  "name": "sample-ecommerce-api",
+  "version": "1.0.0",
+  "description": "Sample ecommerce API built for testing purposes",
+  "main": "index.js",
+  "author": "Mindaugas Varkalys",
+  "dependencies": {
+    "uWebSockets.js": "github:uNetworking/uWebSockets.js#v17.3.0"
+  }
+}
