@@ -16,6 +16,7 @@ items:
         metadata:
           labels:
             app: api
+            gitcommit: ${CICD_GIT_COMMIT}
         spec:
           containers:
             - name: api
