@@ -6,7 +6,7 @@ stages:
           buildContext: .
           tag: minvar/sample-api
           pushRemote: true
-          registry: registry.hub.docker.com
+          registry: index.docker.io
 
   - name: Deploy
     steps:
