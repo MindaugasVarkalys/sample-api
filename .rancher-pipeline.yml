@@ -1,0 +1,12 @@
+stages:
+  - name: Build image
+    steps:
+      - publishImageConfig:
+          dockerfilePath: ./Dockerfile
+          buildContext: .
+          tag: minvar/sample-api
+
+  - name: Deploy
+    steps:
+      - applyYamlConfig:
+          path: ./kubernetes.yaml
