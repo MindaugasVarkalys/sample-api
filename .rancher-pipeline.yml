@@ -5,6 +5,8 @@ stages:
           dockerfilePath: ./Dockerfile
           buildContext: .
           tag: minvar/sample-api
+          pushRemote: true
+          registry: hub.doker.com
 
   - name: Deploy
     steps:
